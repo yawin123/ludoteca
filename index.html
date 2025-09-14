@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludoteca - COP El clavel</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #menu {
+        margin-bottom: 20px;
+      }
+      #menu a {
+        display: inline-block;
+        margin: 5px;
+        padding: 8px 12px;
+        background: #eee;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333;
+      }
+      #menu a:hover {
+        background: #ccc;
+      }
+
+      p {
+        margin: 5px 0px;
+        text-align: justify;
+      }
+
+      #menu {
+        border-bottom: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menu">Cargando menú...</div>
+    <div id="rules">Cargando...</div>
+
+    <script>
+      let juegosData = null;
+
+      function cargaReglas(idJuego)
+      {
+        if(juegosData)
+        {
+            const juego = juegosData.juegos.find(j => j.id === idJuego);
+            if(!juego)
+            {
+                $("#rules").text("Juego no encontrado");
+                return;
+            }
+
+            $.get(juego.reglas).done(function(contenido)
+                {
+                  $("#rules").html(contenido);
+                })
+            .fail(function() 
+                {
+                  $("#rules").text("Error al cargar las reglas de " + juego.nombre);
+                });
+        }
+      }
+
+      $(function()
+      {
+        $.getJSON("./juegos.json").done(function(data)
+        {
+          juegosData = data;
+
+          let menuHtml = "";
+          data.juegos.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+          data.juegos.forEach(function(juego)
+          {
+            menuHtml += `<a href="?juego=${juego.id}">${juego.nombre}</a>`;
+          });
+
+          $("#menu").html(menuHtml);
+
+          const params = new URLSearchParams(window.location.search);
+          const juego = params.get("juego");
+
+          if(juego)
+          {
+            cargaReglas(juego);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

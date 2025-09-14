@@ -1,0 +1,69 @@
+<style>
+  h2 {
+    margin-bottom: 5px;
+  }
+  h3, h4 {
+    margin-bottom: 0px;
+  }
+</style>
+
+<h1>Hive</h1>
+<p>El objetivo de Hive es capturar a la abeja reina del oponente, rodeándola por completo en sus seis lados con cualquier tipo de pieza hexagonal, sin importar cuáles sean. Al mismo tiempo, cada jugador debe impedir que su propia reina sea capturada.</p>
+
+<h2>Composición</h2>
+<p>El juego utiliza fichas hexagonales que representan diferentes insectos, cada uno con un tipo de movimiento único.</p>
+<p>Cada jugador dispone de 13 fichas:</p>
+<ul>
+    <li>1 abeja reina</li>
+    <li>2 arañas</li>
+    <li>2 escarabajos</li>
+    <li>3 saltamontes</li>
+    <li>3 hormigas</li>
+    <li>1 mosquito</li>
+    <li>1 mariquita</li>
+    <li>1 cochinilla</li>
+</ul>
+
+<h2>Cómo se juega</h2>
+<h3>Reglas generales</h3>
+<p>El juego comienza sobre una superficie libre, en la que cada jugador, comenzando por el jugador blanco, colocará su pieza inicial, siendo esta la que elija de forma estratégica. Estas piezas deberán colocarse en contacto la una con la otra.</p>
+<p>A partir de ese momento, cualquier pieza nueva que se coloque, deberá posicionarse conectada a otra del mismo color, sin entrar en contacto directo con las del oponente.</p>
+<p>En cada turno, un jugador puede colocar una nueva pieza de su reserva o, si ya ha colocado su abeja reina, mover una de sus piezas conforme a su movimiento o habilidad específica.</p>
+<p>Al moverse, una pieza puede desplazarse a un nuevo espacio independientemente del color de las piezas con las que entre en contacto, siempre que permanezca adyacente al menos a otra pieza. A medida que avance la partida y se añadan más piezas, la colmena crecerá progresivamente hasta completarse con las 28 piezas, quedando muchas de ellas rodeadas o bloqueadas por otras.</p>
+<p>La abeja reina debe colocarse obligatoriamente antes de que termine el 4 de cada jugador; es decir, no puede haber cuatro piezas de un mismo jugador sin que una de ellas sea la reina. Tampoco puede situarse como primera pieza.</p>
+
+<h3>Piezas y movimientos</h3>
+<p>Como ya se ha dicho, el movimiento de las piezas se rige por la forma hexagonal de las fichas. Estas deben colocarse de manera que una de sus caras entre en contacto con la cara de otra ficha adyacente.</p>
+<p>Un movimiento de un «espacio» equivale a desplazarse hacia una posición imaginaria en forma de hexágono, adyacente tanto al espacio actual como a otra pieza. Aunque el juego carece de un tablero físico, puede considerarse que se desarrolla sobre un plano infinito de hexágonos teselados.</p>
+<p>Una regla fundamental es la denominada regla de la única colmena: una pieza nunca puede moverse de tal forma que, durante o después de su desplazamiento, el conjunto de fichas quede dividido en dos grupos separados. Incluso si tras completar el movimiento la colmena permanece como un solo grupo, el desplazamiento será ilegal si en algún momento intermedio se produce una desconexión.</p>
+<p>Existen una consideració adicional en el movimiento de las piezas: el desplazamiento se realiza, a menos que una habilidad indique otra cosa, alrededor del perímetro de las demás fichas y sin atravesarlas. Esto significa que, aunque haya hueco, si la ficha no cabe físicamente no puede pasar.</p>
+<p>Los movimientos de cada una de las ocho piezas diferentes del juego son los siguientes :</p>
+<ul>
+    <li>La <b>abeja reina</b> es una de las piezas con movimiento más limitado: solo puede desplazarse un espacio a la vez en cualquier dirección, de forma similar al rey en el ajedrez.</li>
+    <li><p>El <b>escarabajo</b> comparte con la abeja reina la limitación de moverse únicamente un espacio por turno. Sin embargo, a diferencia de esta, el escarabajo puede trepar sobre cualquier pieza adyacente y, a partir de allí, desplazarse un espacio por turno sobre la parte superior de la colmena. Mientras un escarabajo permanezca encima de otra pieza, esta última no podrá moverse. Además, al colocar nuevas fichas, la casilla ocupada cuenta como del color del escarabajo situado en la parte superior, lo que facilita nuevas posibilidades de colocación.</p>
+	<p>Los escarabajos pueden trepar incluso sobre otros escarabajos —incluidos aquellos que ya estén encima de otras piezas—, permitiendo la formación de «torres», en ocasiones combinadas con mosquitos. En cualquier momento en que se encuentren en un borde, pueden descender desde la parte superior de la colmena al nivel inferior, independientemente de la altura alcanzada.</p>
+	<p>Que un escarabajo se suba a una reina rival no quiere decir que ya haya ganado, el objetivo del juego es cercarla, no dejar un bicho encima, aunque sí facilita la posibilidad de colocar nuevos bichos directamente en contacto con la reina rival que de otra manera no se podría. Tampoco significa que si tu escarabajo cubre tu propia Reina, esta quede inmortalizada, ya que, aunque no se vea, la reina sigue estando ahí y si queda rodeada pierdes.</p></li>
+    <li>La <b>araña</b> puede moverse exactamente tres espacios alrededor del perímetro de la colmena. Durante estos tres espacios no puede retroceder, siempre tienen que ser continuos.</li>
+    <li>El <b>saltamontes</b> es, como su homónimo, se mueve saltando sobre una o más piezas en línea recta hasta el primer espacio adyacente en el lado opuesto de la línea de piezas. Siempre salta en dirección a una de sus caras, nunca a una de sus esquinas, de forma que por sí solo, tendrá el mismo número de movimientos que lados en contacto con otros bichos, con un mínimo de 1 movimiento (si no está bloqueado), hasta 6.</li>
+    <li>La <b>hormiga</b> sólo puede moverse alrededor del perímetro de la colmena, como la reina o la araña; pero, a diferencia de esas dos piezas, puede moverse tantos espacios como el jugador desee.</li>
+    <li>El <b>mosquito</b> es una pieza que no tiene poder de movimiento por sí mismo, sino que adquiere el poder de cualquier pieza (propia o del oponente) adyacente a ella. Si está junto a un saltamontes, por ejemplo, el mosquito podrá moverse como un saltamontes. Si se sube a la colmena usando los poderes del escarabajo, se considerará que es un escarabajo hasta que baje de nuevo al nivel principal. Un mosquito no puede copiar los poderes que haya copiado otro mosquito.</li>
+    <li><p>La <b>cochinilla</b> se mueve como si de la abeja reina se tratara, o sea, con un solo movimiento por turno, pero puede usar su habilidad especial en vez de su movimiento. Su característica es que, si esta en contacto con otra pieza, ya sea enemiga o aliada, puede hacerla mover 2 espacios. La habilidad tiene 4 excepciones:</p>
+	    <ul>
+		    <li>No se puede mover la ficha que el rival ha movido en su último turno.</li>
+			<li>No se puede mover una ficha totalmente o casi rodeada por completo por otras piezas.</li>
+			<li>No se puede mover una pieza que separe la colmena en 2 grupos.</li>
+			<li>No se puede mover una pieza a través de una brecha estrecha de piezas.</li>
+        </ul></li>
+    <li>La <b>mariquita</b> es una pieza que se mueve igual que la araña, o sea, de 3 movimientos (ni uno más ni uno menos) pero con la excepción de que la mariquita realiza el movimiento por encima de las piezas, escalando como si de un escarabajo se tratara. Su primer movimiento, por lo tanto, será de subida, realizará un movimiento por encima de las piezas, y luego su tercer y último movimiento será el de bajada, pudiendo recorrer así más distancia que la araña.</li>
+</ul>
+<p>Si un jugador no puede realizar ningún movimiento legal, su turno pasa y el otro jugador puede volver a mover (esto se repetirá hasta que un jugador gane o el primer jugador pueda volver a mover).</p>
+
+<h3>Final del juego</h3>
+<p>El juego termina con un ganador cuando una abeja reina es capturada rodeándola por los 6 lados, por las piezas de cualquiera de los jugadores, y el jugador cuya abeja reina está rodeada pierde el juego.</p>
+<p>Hay cuatro formas en las que una partida puede terminar en empate:</p>
+<ul>
+    <li>Por mutuo acuerdo de ambos jugadores,.</li>
+	<li>Si un movimiento rodea simultáneamente ambas abejas reinas.</li>
+	<li>En una situación en la que el mejor movimiento de cada jugador durante un turno conduce a una repetición cíclica interminable de una serie de movimientos.</li>
+	<li>Ningún jugador puede realizar ningún movimiento legal.</li>
+</ul>

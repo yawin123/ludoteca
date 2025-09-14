@@ -1,0 +1,42 @@
+<style>
+  img {
+    width: 350px;
+    margin: 10px 0px;
+  }
+</style>
+<h1>THUD! Juego de Mesa</h1>
+<h2>Reglas originales</h2>
+<p>El área de juego octogonal consiste en un tablero cuadrado de 15 por 15 del cual se ha retirado un triángulo de 15 casillas en cada esquina. La Piedra se coloca en la casilla central del tablero, donde permanece durante todo el juego y no puede ser movida ni atravesada. Los ocho trolls se colocan en las ocho casillas adyacentes a la Piedra y los treinta y dos enanos se colocan de manera que ocupen todos los espacios del perímetro, excepto los cuatro que están en la misma línea horizontal o vertical que la Piedra.</p>
+<img src="./img/thud1.png"/>
+<p style="margin: 0px 0px 15px 0px;"><small><i>El diagrama muestra las posiciones iniciales del juego. "d" representa a los enanos, "T" representa a los trolls, y "X" representa la Piedra.</i></small></p>
+<p>Un jugador toma el control de los enanos, el otro controla a los trolls. Los enanos se mueven primero.</p>
+<p>En el turno de los enanos, se puede mover o lanzar un enano:</p>
+<ul>
+  <li>Mover: cualquier enano se mueve como una reina de ajedrez, cualquier número de casillas en cualquier dirección ortogonal o diagonal, pero no sobre o a través de ninguna otra pieza, ya sea la Piedra, un enano o un troll.</li>
+  <li>Lanzar: en cualquier lugar donde haya una línea recta (ortogonal o diagonal) de enanos adyacentes en el tablero, pueden lanzar al enano delantero en la dirección que continúa la línea para capturar un trill, siempre que el espacio entre el enano líder y el troll sea menor que el número de enanos en la línea. Esto es diferente de un movimiento normal, ya que al enano se le permite aterrizar en una casilla que contiene un troll, en cuyo caso el troll es retirado del tablero y el enano ocupa su lugar. Esto solo se puede hacer si el enano más alejado puede aterrizar en un troll moviéndose en la dirección de la línea como máximo tantas casillas como enanos haya en la línea. Dado que un solo enano es una línea de uno en cualquier dirección, un enano siempre puede moverse una casilla para capturar un troll en una casilla inmediatamente adyacente.</li>
+</ul>
+<p>En el turno de los trolls, se puede mover o empujar un troll:</p>
+<ul>
+  <li>Mover: un troll se mueve como un rey de ajedrez, una casilla en cualquier dirección ortogonal o diagonal a una casilla vacía. Opcionalmente, después de que el troll se haya movido, un enano de una de las ocho casillas adyacentes al troll movido puede ser capturado y retirado del tablero, a discreción del jugador troll.</li>
+  <li>Empujar: en cualquier lugar donde haya una línea recta (ortogonal o diagonal) de trolls adyacentes en el tablero, se puede empujar al troll más alejado en la dirección que continúa la línea, hasta tantas casillas como trolls haya en la línea. Como en un movimiento normal, el troll no puede aterrizar en una casilla ocupada, y todos los enanos en las ocho casillas adyacentes a su posición final pueden ser capturados inmediatamente. Los trolls solo pueden hacer un empuje si al hacerlo capturan al menos un enano.</li>
+</ul>
+<p>La batalla termina cuando ambos jugadores acuerdan que no se pueden realizar más capturas continuando el juego, o cuando un jugador no tiene más movimientos válidos que hacer. En este punto, los jugadores cuentan la puntuación: los enanos obtienen 1 punto por cada enano superviviente, y los trolls obtienen 4 puntos por cada troll restante, siendo la diferencia la puntuación 'final'. Los jugadores deben entonces intercambiar lados para jugar otra ronda, y la suma de sus puntuaciones finales de las dos batallas determina el vencedor general.</p>
+
+<h3>Tácticas</h3>
+<p>La estrategia general básica para los enanos es formar un grupo grande y para los trolls intentar detenerlos. Normalmente es mejor que los trolls estén ampliamente espaciados.</p>
+<p>La estrategia de un enano depende en gran medida de cómo los trolls avanzan sobre el bloque enano. Una buena táctica, por lo tanto, es estar preparado para sacrificar a algunos enanos para que se interpongan y ralenticen a cualquier troll que avance hacia posiciones peligrosas.</p>
+<p>La estrategia de un troll también puede variar, pero al comienzo de una partida, entrar en líneas de empuje se considera la mejor táctica.</p>
+
+<h2>Reglas de Koom Valley</h2>
+<h3>Objetivo</h3>
+<p>Para que los enanos ganen, deben mover la roca al lado opuesto del valle, a cualquiera de los cinco cuadrados del lado opuesto del tablero frente a donde está sentado el comandante enano. Para que los trolls ganen, deben capturar la roca colocando tres trolls adyacentes a ella (en cualquier dirección, incluida la diagonal). Si ninguno de los lados puede lograr su objetivo, la partida es un empate.</p>
+<img src="./img/thud2.png"/>
+
+<h3>Movimiento</h3>
+<p>El movimiento es el mismo que en las Reglas Originales, excepto que los Trolls ahora pueden moverse hasta 3 espacios en cualquier dirección (horizontal, vertical o diagonal).</p>
+<p>Los enanos pueden mover la Roca en lugar de mover una pieza de enano. Puede moverse solo un cuadrado en cualquier dirección. Para ser movida, debe estar junto a un enano y también debe estar junto a un enano al final de su movimiento.</p>
+
+<h3>Capturas</h3>
+<p>Un troll captura a un enano pisoteándolo. Se mueve en línea recta desde un cuadrado junto al enano, a través del cuadrado donde está el enano y aterriza en el cuadrado vacío inmediatamente más allá. El enano pisoteado se retira del tablero. Se pueden realizar varias capturas en un solo movimiento y se permite un cambio de dirección entre capturas.</p>
+<p>Los enanos capturan a un troll moviendo un enano de modo que el troll quede atrapado entre dos enanos en cualquier línea recta (incluida la diagonal). Las tres piezas, dos enanos y un troll, deben estar todas en línea. Si el enano que ha sido movido también atrapa a otro troll entre sí mismo y otro enano, ese troll también es capturado.</p>
+<p>Las capturas solo se realizan cuando el lado que captura mueve una pieza. La roca puede ser movida y quedar junto a tres trolls. Solo puede ser capturada cuando un troll es movido.</p>

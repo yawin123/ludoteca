@@ -1,0 +1,29 @@
+{
+    "juegos" : [
+        {
+            "id": "secrethitler",
+            "nombre": "Secret Hitler",
+            "reglas": "rules/secrethitler.html"
+        },
+        {
+            "id": "thud",
+            "nombre": "Thud",
+            "reglas": "rules/thud.html"
+        },
+        {
+            "id": "quoridor",
+            "nombre": "Quoridor",
+            "reglas": "rules/quoridor.html"
+        },
+        {
+            "id": "hive",
+            "nombre": "Hive",
+            "reglas": "rules/hive.html"
+        },
+        {
+            "id": "domino",
+            "nombre": "Dominó",
+            "reglas": "rules/domino.html"
+        }
+    ]
+}
