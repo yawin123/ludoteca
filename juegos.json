@@ -24,6 +24,11 @@
             "id": "domino",
             "nombre": "Dominó",
             "reglas": "rules/domino.html"
+        },
+        {
+            "id": "connect4",
+            "nombre": "Cuatro en raya",
+            "reglas": "rules/con4.html"
         }
     ]
 }

@@ -1,152 +1,148 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ludoteca - COP El clavel</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludoteca - COP El clavel</title>
 
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="qrcode.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-  <style>
-  body {
-    font-family: Arial, sans-serif;
-  }
-  #full-menu {
-    margin-bottom: 20px;
-    border-bottom: 1px solid black;
-  }
-  #full-menu a {
-    display: inline-block;
-    margin: 5px;
-    padding: 8px 12px;
-    background: #eee;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #333;
-  }
-  #full-menu a:hover {
-    background: #ccc;
-  }
-
-  #menu {
-    text-align: left;
-  }
-
-  #qr {
-    border-right: 1px solid black;
-  }
-
-  #qr a {
-    background: #6ab9ff;
-  }
-
-  #qr_div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px; /* Espacio entre QR */
-  }
-
-  #qr_div > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-
-  p {
-    margin: 5px 0px;
-    text-align: justify;
-  }
-  </style>
-</head>
-<body>
-  <div id="full-menu">
-    <span id="qr"><a href="?qr=show">QR</a></span>
-    <span id="menu">Cargando menú...</span>
-  </div>
-  <div id="qr_div" hidden></div>
-  <div id="rules">Selecciona un juego</div>
-
-  <script>
-    let juegosData = null;
-    const baseUrl = `${window.location.origin}${window.location.pathname}`;
-
-    function cargaReglas(idJuego)
-    {
-      if(juegosData)
-      {
-        const juego = juegosData.juegos.find(j => j.id === idJuego);
-        if(!juego)
-        {
-          $("#rules").text("Juego no encontrado");
-          return;
-        }
-
-        $.get(juego.reglas).done(function(contenido)
-        {
-          $("#rules").html(contenido);
-        })
-        .fail(function()
-        {
-          $("#rules").text("Error al cargar las reglas de " + juego.nombre);
-        });
+    <style>
+      body {
+        font-family: Arial, sans-serif;
       }
-    }
+      #full-menu {
+        margin-bottom: 20px;
+        border-bottom: 1px solid black;
+      }
+      #full-menu a {
+        display: inline-block;
+        margin: 5px;
+        padding: 8px 12px;
+        background: #eee;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333;
+      }
+      #full-menu a:hover {
+        background: #ccc;
+      }
 
-    function generaQR() {
-      const qrContainer = $("#qr_div");
-      qrContainer.empty();
+      #menu {
+        text-align: left;
+      }
 
-      juegosData.juegos.forEach(juego =>
+      #qr {
+        border-right: 1px solid black;
+      }
+
+      #qr a {
+        background: #6ab9ff;
+      }
+
+      #qr_div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px; /* Espacio entre QR */
+      }
+
+      #qr_div > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+
+      p {
+        margin: 5px 0px;
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="full-menu">
+      <span id="qr"><a href="?qr=show">QR</a></span>
+      <span id="menu">Cargando menú...</span>
+    </div>
+    <div id="qr_div" hidden></div>
+    <div id="rules">Selecciona un juego</div>
+
+    <script>
+      let juegosData = null;
+      const baseUrl = `${window.location.origin}${window.location.pathname}`;
+
+      function cargaReglas(idJuego)
       {
-        const juegoDiv = $(`<div id="${juego.id}">${juego.nombre}</div>`);
-        qrContainer.append(juegoDiv);
-
-        const juegoUrl = `${baseUrl}?juego=${juego.id}`;
-        new QRCode(juegoDiv[0],
+        if(juegosData)
         {
-          text: juegoUrl,
-          width: 175,
-          height: 175
+          const juego = juegosData.juegos.find(j => j.id === idJuego);
+          if(!juego)
+          {
+            $("#rules").text("Juego no encontrado");
+            return;
+          }
+
+          $.get(juego.reglas).done(function(contenido)
+          {
+            $("#rules").html(contenido);
+          })
+          .fail(function()
+          {
+            $("#rules").text("Error al cargar las reglas de " + juego.nombre);
+          });
+        }
+      }
+
+      function generaQR()
+      {
+        const qrContainer = $("#qr_div");
+        qrContainer.empty();
+
+        juegosData.juegos.forEach(juego => {
+          const juegoDiv = $(`<div id="${juego.id}">${juego.nombre}</div>`);
+          qrContainer.append(juegoDiv);
+
+          const juegoUrl = `${baseUrl}?juego=${juego.id}`;
+          const img = $(`<img alt="QR ${juego.nombre}" width="175" height="175">`);
+          img.attr("src", `https://api.qrserver.com/v1/create-qr-code/?size=175x175&data=${encodeURIComponent(juegoUrl)}`);
+          juegoDiv.append(img);
+        });
+
+        $("#rules").hide();
+        $("#qr_div").show();
+      }
+
+
+      $(function()
+      {
+        $.getJSON("./juegos.json").done(function(data)
+        {
+          juegosData = data;
+
+          let menuHtml = "";
+          data.juegos.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+          data.juegos.forEach(function(juego)
+          {
+            menuHtml += `<a href="?juego=${juego.id}">${juego.nombre}</a>`;
+          });
+
+          $("#menu").html(menuHtml);
+
+          const params = new URLSearchParams(window.location.search);
+          const juego = params.get("juego");
+
+          if(juego)
+          {
+            cargaReglas(juego);
+          }
+
+          const qr = params.get("qr");
+          if(qr)
+          {
+            generaQR();
+          }
         });
       });
-
-      $("#rules").hide();
-      $("#qr_div").show();
-    }
-
-
-    $(function()
-    {
-      $.getJSON("./juegos.json").done(function(data)
-      {
-        juegosData = data;
-
-        let menuHtml = "";
-        data.juegos.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
-        data.juegos.forEach(function(juego)
-        {
-          menuHtml += `<a href="?juego=${juego.id}">${juego.nombre}</a>`;
-        });
-
-        $("#menu").html(menuHtml);
-
-        const params = new URLSearchParams(window.location.search);
-        const juego = params.get("juego");
-
-        if(juego)
-        {
-          cargaReglas(juego);
-        }
-
-        const qr = params.get("qr");
-        if(qr)
-        {
-          generaQR();
-        }
-      });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
