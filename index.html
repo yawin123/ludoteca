@@ -99,11 +99,11 @@
         qrContainer.empty();
 
         juegosData.juegos.forEach(juego => {
-          const juegoDiv = $(`<div id="${juego.id}">${juego.nombre}</div>`);
+          const juegoDiv = $(`<div style="text-align:center; border: 1px dotted black; padding: 5px 10px;" id="${juego.id}"><h2 style="margin-bottom: 0px;">${juego.nombre}</h2><p>Puedes consultar el reglamento aquí</p></div>`);
           qrContainer.append(juegoDiv);
 
           const juegoUrl = `${baseUrl}?juego=${juego.id}`;
-          const img = $(`<img alt="QR ${juego.nombre}" width="175" height="175">`);
+          const img = $(`<img alt="QR ${juego.nombre}" width="200" height="200">`);
           img.attr("src", `https://api.qrserver.com/v1/create-qr-code/?size=175x175&data=${encodeURIComponent(juegoUrl)}`);
           juegoDiv.append(img);
         });
