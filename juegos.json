@@ -29,6 +29,11 @@
             "id": "connect4",
             "nombre": "Cuatro en raya",
             "reglas": "rules/con4.html"
+        },
+        {
+            "id": "wrench",
+            "nombre": "Wrench racers",
+            "reglas": "rules/wrench.html"
         }
     ]
 }
